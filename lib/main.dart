@@ -1,8 +1,19 @@
+import 'package:eos_chatting/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'package:eos_chatting/screens/main_screen.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.web,
+  );
+  runApp(
+      const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: ChatScreen(),
+      ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -13,7 +24,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Chatting App',
         theme: ThemeData(
-          primarySwatch: Colors.blue, fontFamily: 'Teko',
+          primarySwatch: Colors.green, fontFamily: 'Teko',
         ),
         home: LoginSignUpScreen()
     );
