@@ -30,7 +30,7 @@ const connectionPool = mysql.createPool({
 });
 
 exports.getConnectionPool = (callback)=>{
-    connectionPool.getConnection((err,conn))=>{
+    connectionPool.getConnection((err,conn)=>{
     if(!err) callback(conn);
     console.log(err)
     })
